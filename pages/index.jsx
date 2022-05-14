@@ -25,7 +25,7 @@ export default function Home() {
 			.then(res => res.json())
 
 			.then(data => {
-				setLink(data.shortUrl);
+				setLink(`short-link-jonarroh.vercel.app/${data.shortUrl}`);
 			});
 	};
 

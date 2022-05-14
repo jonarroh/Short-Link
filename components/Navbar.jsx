@@ -21,7 +21,7 @@ const Navbar = () => {
 				<Text color="primary" h4>
 					Short Link
 				</Text>
-				<Spacer x={50} />
+				<Spacer x={1} />
 				<Button color="primary" auto>
 					{isLight ? 'Oscuro' : 'Claro'}
 				</Button>
