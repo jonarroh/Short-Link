@@ -1,33 +1,45 @@
 import {
-	Button,
-	Grid,
-	Spacer,
-	Text,
-	useTheme
-} from '@nextui-org/react';
+	Box,
+	Flex,
+	Heading,
+	Highlight,
+	Link,
+	Text
+} from '@chakra-ui/react';
+import NextLink from 'next/link';
+import ShortText from './ShortText';
 
-const Navbar = () => {
-	const theme = useTheme();
-	const isLight = theme.isDark;
+function Navbar() {
 	return (
-		<>
-			<Grid.Container
-				css={{
-					backgroundColor: '$back',
-					height: '70px',
-					width: '100%'
-				}}
-				alignItems="center">
-				<Text color="primary" h4>
-					Short Link
-				</Text>
-				<Spacer x={1} />
-				<Button color="primary" auto>
-					{isLight ? 'Oscuro' : 'Claro'}
-				</Button>
-			</Grid.Container>
-		</>
+		<nav>
+			<Flex color="white">
+				<Box p={4}>
+					<NextLink passHref href="/">
+						<Link>
+							<ShortText />
+						</Link>
+					</NextLink>
+				</Box>
+				<Box flex={1}></Box>
+				<Box p={4}>
+					<Heading lineHeight="tall">
+						<Text fontSize={{ base: '15px', md: '25px', lg: '32px' }}>
+							<Highlight
+								query="easy"
+								styles={{
+									px: '2',
+									py: '2',
+									rounded: 'full',
+									bg: 'red.100'
+								}}>
+								An easy way to save links
+							</Highlight>
+						</Text>
+					</Heading>
+				</Box>
+			</Flex>
+		</nav>
 	);
-};
+}
 
 export default Navbar;

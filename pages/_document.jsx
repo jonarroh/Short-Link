@@ -1,25 +1,21 @@
-import Document, {
+// pages/_document.js
+
+import { ColorModeScript, theme } from '@chakra-ui/react';
+import NextDocument, {
 	Html,
 	Head,
 	Main,
 	NextScript
 } from 'next/document';
-import { CssBaseline } from '@nextui-org/react';
 
-class MyDocument extends Document {
-	static async getInitialProps(ctx) {
-		const initialProps = await Document.getInitialProps(ctx);
-		return {
-			...initialProps,
-			styles: <>{initialProps.styles}</>
-		};
-	}
-
+export default class Document extends NextDocument {
 	render() {
 		return (
-			<Html>
-				<Head>{CssBaseline.flush()}</Head>
+			<Html lang="en">
+				<Head />
 				<body>
+					{/* 👇 Here's the script */}
+					<ColorModeScript initialColorMode={'dark'} />
 					<Main />
 					<NextScript />
 				</body>
@@ -27,5 +23,3 @@ class MyDocument extends Document {
 		);
 	}
 }
-
-export default MyDocument;
