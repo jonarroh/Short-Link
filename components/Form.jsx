@@ -24,9 +24,10 @@ const Form = () => {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
-		Swal.showLoading();
 		const url = inputRef.current.value;
 		if (!url) return;
+		Swal.showLoading();
+
 		const data = await shortlinkServices(url);
 		const completeUrl = `${BASE_URL}/${data.shortUrl}`;
 		inputRef.current.value = completeUrl;
