@@ -30,7 +30,7 @@ function Navbar() {
 									px: '2',
 									py: '2',
 									rounded: 'full',
-									bg: 'red.100'
+									bg: 'teal.100'
 								}}>
 								An easy way to save links
 							</Highlight>

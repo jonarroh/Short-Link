@@ -24,17 +24,20 @@ const Form = () => {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
+		Swal.showLoading();
 		const url = inputRef.current.value;
 		if (!url) return;
 		const data = await shortlinkServices(url);
 		const completeUrl = `${BASE_URL}/${data.shortUrl}`;
 		inputRef.current.value = completeUrl;
 		setShortLink(completeUrl);
+		Swal.close();
 		Swal.fire({
 			title: 'Short Link Created',
 			icon: 'success',
 			background: '#1A202C',
-			confirmButtonText: 'Copy link'
+			confirmButtonText: 'Copy link',
+			color: '#fff'
 		});
 	};
 	return (
