@@ -17,7 +17,7 @@ const Form = () => {
 	const inputRef = useRef();
 	const [shortLink, setShortLink] = useState('');
 	const { hasCopied, onCopy } = useClipboard(shortLink);
-	const BASE_URL = '';
+	let BASE_URL = '';
 	if (process.env.NODE_ENV === 'development') {
 		BASE_URL = 'http://localhost:3000';
 	}
